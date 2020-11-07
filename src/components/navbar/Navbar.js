@@ -13,6 +13,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
+import Container from '@material-ui/core/Container';
 
 // css styles
 const useStyles = makeStyles({
@@ -84,26 +85,28 @@ function Navbar() {
     //////////////////////////////////////// JSX //////////////////////////////////////////////////////////////////
     return (
         <div>
-            <Box>
-                <AppBar position="static" style={{background: "none", boxShadow: "none"}}>
-                    <Toolbar>
-                        <Grid container direction="row" alignItems="center" justify="space-between">
-                            <Typography variant="h4" style={{color: "orange"}}>logo</Typography>
-                                <IconButton onClick={toggleSlider('left',true)}>
-                                    <MenuIcon style={{color: "orange", fontSize: "30px"}} />
-                                </IconButton>
-                        </Grid>
-                            {/* Drawer slide menu action */}
-                            <Drawer 
-                                open={state.left} 
-                                anchor="left"
-                                onClose={toggleSlider("left",false)}>
-                                {/* bring in menuList */}
-                                {sideList("left")}
-                            </Drawer>
-                    </Toolbar>
-                </AppBar>
-            </Box>
+            <Container>
+                <Box>
+                    <AppBar position="static" style={{background: "none", boxShadow: "none"}}>
+                        <Toolbar>
+                            <Grid container direction="row" alignItems="center" justify="space-between">
+                                <Typography variant="h4" style={{color: "orange"}}>logo</Typography>
+                                    <IconButton onClick={toggleSlider('left',true)}>
+                                        <MenuIcon style={{color: "orange", fontSize: "30px"}} />
+                                    </IconButton>
+                            </Grid>
+                                {/* Drawer slide menu action */}
+                                <Drawer 
+                                    open={state.left} 
+                                    anchor="left"
+                                    onClose={toggleSlider("left",false)}>
+                                    {/* bring in menuList */}
+                                    {sideList("left")}
+                                </Drawer>
+                        </Toolbar>
+                    </AppBar>
+                </Box>
+            </Container>
         </div>
     )
 }
